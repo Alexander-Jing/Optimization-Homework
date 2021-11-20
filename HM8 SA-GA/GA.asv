@@ -1,0 +1,24 @@
+function [x,fval] = GA
+nvars = 2;
+A = [1,0;
+    0,1;
+    -1,0;
+    0,-1;];
+b = [6;6;6;6];
+[x,fval] = ga(@objfun,nvars,A,b)
+
+    
+function f = objfun(x)
+    f = (2186 - (x(1).^2+x(2)-11)^2 - (x(1)+x(2).^2 - 7)^2)/2186;
+end
+
+% draw the mesh image of the function 
+xn1 = linspace(-6,6,12001);
+xn2 = linspace(-6,6,12001);
+[X1, X2] = meshgrid(xn1, xn2);
+% X1((1-X1.^2-X2.^2)<0) = NaN;
+% X2((1-X1.^2-X2.^2)<0) = NaN;
+Z = (2186 - (X1.^2+X2-11)^2 - (X1+X2.^2 - 7)^2)/2186;
+mesh(X1,X2,Z);
+
+end
