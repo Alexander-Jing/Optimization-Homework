@@ -15,5 +15,15 @@ def branch_bound():
     # u, the decision 0 or 1 
     # J_pre, the predicted minimum; 
     # J_result, if the node is the leaf, it is the result output of the node 
-    Q_nodes.put({'k':1,'u':0,'J_pre':0,'J_result':0}) 
-    Q_nodes.put({'k':1,'u':1,'J_pre':0,'J_result':0}) 
+    # initialize the Q_nodes, the left is 0, the right is the 1 
+    
+    ini_left = {'k':1,'u':0,'J_pre':0,'J_result':-1}
+    
+    Q_nodes.put(ini_left) 
+    ini_right = {'k':1,'u':1,'J_pre':0,'J_result':-1}
+    
+    Q_nodes.put(ini_right)
+    tree.left = BTree()
+
+    while(not(Q_nodes.empty())):
+        pass
